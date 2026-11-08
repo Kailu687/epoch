@@ -1,0 +1,14 @@
+build/
+website/dist/
+releases/artifacts/*.zip
+__pycache__/
+.pytest_cache/
+*.pyc
+.venv/
+.claude/
+*.zip
+runtime/
+*.sqlite
+*.sqlite-wal
+*.sqlite-shm
+*.mp4

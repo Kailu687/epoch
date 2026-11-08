@@ -1,0 +1,43 @@
+<!--title:Epoch — local-first machine learning training|desc:Import a dataset, let the engine inspect it, train and evaluate models on your own machine, and export a reproducible pipeline. Early development.-->
+<section class="hero"><div class="wrap grid g2" style="align-items:center;gap:48px">
+<div class="fade"><div class="eyebrow">Local-first ML training</div>
+<h1>Train and evaluate models without writing training code.</h1>
+<p class="lead">Epoch inspects your dataset, proposes a sound evaluation protocol, trains candidate models on your own computer, and exports the model with the pipeline needed to reproduce predictions.</p>
+<div class="btn-row">{{cta}}<a class="btn" href="docs/index.html">Read the docs</a></div>
+<p class="cap">{{dl_note}} Currently supports tabular CSV classification and regression only.</p></div>
+<div class="fade"><figure class="shot hero-shot"><img src="assets/img/results.png" alt="Epoch results screen: bar chart of candidate models against the baseline, and a confusion matrix" width="1400" height="902"><figcaption>Results screen of the development build on a synthetic demo dataset. <a href="features.html">More screens</a></figcaption></figure></div></div></section>
+
+<section><div class="wrap"><div class="eyebrow">Workflow</div><h2>From dataset to exported model in five steps</h2>
+<ol class="steps"><li><div><h3>Import</h3><p>Open a CSV file. Content is sniffed and bounded; nothing in the file is executed.</p></div></li>
+<li><div><h3>Inspect and validate</h3><p>Column types, missing values, duplicates and possible target leakage are reported as errors or warnings.</p></div></li>
+<li><div><h3>Configure the task</h3><p>Choose the target. The engine proposes classification or regression and a split protocol, and you confirm.</p></div></li>
+<li><div><h3>Train and evaluate</h3><p>Candidates train in a separate process with real progress. Selection uses validation data only; the test set is evaluated once.</p></div></li>
+<li><div><h3>Export</h3><p>Get the model, preprocessing, input schema, label mapping, metrics and a runnable example.</p></div></li></ol>
+<p><a href="how-it-works.html">More detail on each step →</a> · <a href="features.html">All features and their status →</a></p></div></section>
+
+<section><div class="wrap"><div class="eyebrow">Supported domains</div><h2>Honest about what works today</h2>
+<div class="grid g3">
+<div class="card"><h3>Tabular (CSV)</h3><p>Classification and regression.</p><span class="badge b-warn">in-progress · dev build</span></div>
+<div class="card"><h3>Images</h3><p>Image classification via a PyTorch backend.</p><span class="badge b-plan">planned</span></div>
+<div class="card"><h3>Audio</h3><p>Sound and speech classification with speaker-independent splits.</p><span class="badge b-plan">planned</span></div>
+<div class="card"><h3>Text</h3><p>Text classification.</p><span class="badge b-plan">planned</span></div>
+<div class="card"><h3>Time series</h3><p>Forecasting and anomaly detection.</p><span class="badge b-plan">planned</span></div>
+<div class="card"><h3>Fine-tuning</h3><p>Adapting pretrained neural networks.</p><span class="badge b-plan">planned</span></div></div></div></section>
+
+<section><div class="wrap"><div class="grid g3">
+<div class="card"><h3>Local-first</h3><p>Datasets stay on your machine. Training needs no cloud account or subscription.</p></div>
+<div class="card"><h3>Reproducible</h3><p>Seeds, split indices, data fingerprints and library versions are recorded with each experiment.</p></div>
+<div class="card"><h3>Leakage-aware</h3><p>Preprocessing is fit on training data only, and the test set is protected from model selection.</p></div>
+<div class="card"><h3>Portable export</h3><p>Bundles include schema, label map, metrics, requirements and an inference example. Model files should only be loaded from sources you trust.</p></div>
+<div class="card"><h3>Resource-aware</h3><p>CPU and memory use are shown during training. GPU monitoring is planned.</p></div>
+<div class="card"><h3>Extensible</h3><p>A provider interface is designed so new domains plug in without changing the core. The plugin API is planned.</p></div></div></div></section>
+
+<section><div class="wrap grid g2"><div><div class="eyebrow">Requirements</div><h2>System requirements</h2>
+<p class="muted">Targets for the first release. They have not been verified on a packaged build because none exists yet.</p>
+<dl class="kv"><dt>OS</dt><dd>Windows 10/11, x64</dd><dt>Memory</dt><dd>8 GB recommended</dd><dt>GPU</dt><dd>Not required</dd><dt>Install</dt><dd>Unsigned dev zip or run from source; see <a href="docs/installation.html">installation</a></dd></dl></div>
+<div><div class="eyebrow">FAQ</div><h2>Questions</h2>
+<details><summary>Can I download an installer?</summary><p>There is no stable installer. The downloads page lists an unsigned development build as a zip, and shows a download button only for files that exist and match their checksum.</p></details>
+<details><summary>Does it send my data anywhere?</summary><p>The training engine runs locally and does not require network access.</p></details>
+<details><summary>Will it find the best possible model?</summary><p>No. It searches a limited, declared set of candidates under your budget, and reports what it searched.</p></details>
+<details><summary>Can it train neural networks?</summary><p>Not yet. Neural and non-tabular domains are on the roadmap.</p></details></div></div></section>
+

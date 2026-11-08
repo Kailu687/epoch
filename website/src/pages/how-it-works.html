@@ -1,0 +1,14 @@
+<!--title:How it works — Epoch|desc:The five-step Epoch workflow: import, inspect, configure, train and evaluate, export.-->
+<section class="first"><div class="wrap"><div class="eyebrow">How it works</div><h1>Five steps, one honest evaluation</h1>
+<p class="lead">Each step maps to a screen in the desktop application. Steps marked partial or planned are not yet complete.</p>
+<ol class="steps">
+<li><div><h3>1. Import your data</h3><p>Select a CSV file. The engine detects the delimiter and encoding, reads a bounded preview and computes a content hash so the dataset can be identified later. <span class="badge b-warn">CSV works from source</span> <span class="badge b-plan">Excel, Parquet, images, audio planned</span></p></div></li>
+<li><div><h3>2. Inspect and validate</h3><p>Column types, missing values, constant and ID-like columns, duplicate rows, class imbalance and suspected target leakage are reported. Errors block training; warnings need your attention but do not.</p></div></li>
+<li><div><h3>3. Configure the learning task</h3><p>Choose the target column. The engine suggests classification or regression and a split protocol and explains why. You can override it. Seeds are fixed so the split can be reproduced.</p></div></li>
+<li><div><h3>4. Train and evaluate models</h3><p>Candidates run in a separate worker process. A baseline is always trained first, so you can see whether any model is actually useful. Selection uses validation data. The test set is evaluated once for the selected model, and that use is recorded.</p></div></li>
+<li><div><h3>5. Export and deploy</h3><p>The export bundle contains the fitted pipeline, input schema, label mapping, configuration, metrics and a Python example. Bundles are checksummed; load only bundles you trust.</p></div></li></ol></div></section>
+<section><div class="wrap"><h2>Why the evaluation protocol matters</h2>
+<div class="grid g3"><div class="card"><h3>Preprocessing</h3><p>Imputation, scaling and encoding are fit on training rows only, inside the pipeline.</p></div>
+<div class="card"><h3>Metrics</h3><p>Classification shows macro-F1, balanced accuracy and a confusion matrix, not accuracy alone. Regression shows MAE, RMSE and R².</p></div>
+<div class="card"><h3>Splits</h3><p>Stratified for classification. Group-aware and temporal splits are planned and the interface will warn when a random split looks unsafe.</p></div></div>
+<p style="margin-top:24px"><a class="btn" href="docs/training-workflow.html">Read the training workflow guide</a></p></div></section>

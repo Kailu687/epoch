@@ -1,0 +1,72 @@
+{
+  "schema_version": 1,
+  "product": "Epoch",
+  "notes": "Artifacts are only offered for download when build verification finds a real file matching size and SHA-256 (local 'file') or a recorded 'url_verified_at' (external 'url'). Only a development-channel zip exists; there is no stable release.",
+  "releases": [
+    {
+      "version": "0.1.0",
+      "channel": "stable",
+      "status": "in-development",
+      "published": null,
+      "summary": "Planned first stable release. Not yet published; no stable installer exists.",
+      "changelog": [
+        "Tabular engine: CSV import, profiling, validation, leakage warnings, seeded splits",
+        "Candidates: baseline, linear and tree-based models with validation-only selection",
+        "Single-use test-set evaluation, SQLite experiment tracking, model export bundle",
+        "PySide6 desktop interface (runs from source)"
+      ],
+      "known_issues": [
+        "No packaged installer has been built or verified",
+        "Windows is the only platform considered so far",
+        "GPU monitoring, hyperparameter search and pause/resume are not implemented"
+      ],
+      "min_system": {
+        "os": "Windows 10/11 x64 (target; unverified on a built release)",
+        "ram": "8 GB recommended (target)",
+        "disk": "Not yet measured"
+      },
+      "compatibility_notes": "Running from source requires Python 3.12 with the packages in app/requirements.txt.",
+      "artifacts": []
+    },
+    {
+      "version": "0.1.0-dev.0",
+      "channel": "development",
+      "status": "prerelease",
+      "published": "2026-10-19",
+      "summary": "First development build of the tabular vertical slice (CSV classification and regression). Unsigned, for evaluation only.",
+      "changelog": [
+        "Frozen Windows build of the PySide6 desktop app and the command-line interface",
+        "CSV import runs in a background thread; GUI display fixes (number formatting, warning colours)",
+        "Windowed app launcher (no console window) plus a separate console launcher for the CLI",
+        "Results screen bar chart, synthetic demo dataset button, export defaults to the workspace folder",
+        "Build verified by running EpochCLI.exe --selftest and confirming the GUI launcher stays running for 10 s on the build machine"
+      ],
+      "known_issues": [
+        "Not code-signed: Windows SmartScreen may warn",
+        "Tested only on the machine that built it; not tested on a clean Windows install",
+        "Exported model files are pickle-based; load only trusted bundles",
+        "No hyperparameter search, GPU support, group/temporal splits or pause/resume",
+        "The windowed launcher shows no error output; run EpochCLI.exe --selftest to diagnose problems"
+      ],
+      "min_system": {
+        "os": "Windows 11 x64 (built and run on Windows 11; Windows 10 untested)",
+        "ram": "8 GB recommended (not measured)",
+        "disk": "About 529 MB unpacked, 227 MB zip (measured)"
+      },
+      "compatibility_notes": "Windows x64 only. Python is bundled; no separate install needed.",
+      "artifacts": [
+        {
+          "platform": "Windows",
+          "arch": "x64",
+          "package": "zip (one-folder app)",
+          "name": "Epoch-0.1.0.dev0-win-x64.zip",
+          "file": "Epoch-0.1.0.dev0-win-x64.zip",
+          "size": 238311200,
+          "sha256": "36df3bca73d855908d1f1b3702293ec75069987e88348465724ee7976419ba1e",
+          "min_os": "Windows 11 (tested); Windows 10 untested",
+          "install_notes": "Extract the zip, then run Epoch\\Epoch.exe for the app. Epoch\\EpochCLI.exe is the command-line version (EpochCLI.exe --selftest checks the install)."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+[
+  {"group": "Tabular (CSV)", "items": [
+    {"name": "CSV import, profiling, validation", "status": "in-progress", "note": "Engine implemented and tested from source"},
+    {"name": "Classification and regression baselines + candidates", "status": "in-progress", "note": "Engine implemented and tested from source"},
+    {"name": "Export bundle with schema, metrics, example", "status": "in-progress", "note": "Implemented and tested; not yet released as a stable version"},
+    {"name": "Group-aware and temporal splits", "status": "planned", "note": "Release 2 target"},
+    {"name": "Hyperparameter search with budgets", "status": "planned", "note": "Release 2 target"},
+    {"name": "Excel and Parquet import", "status": "planned", "note": "Release 2 target"}
+  ]},
+  {"group": "Platform", "items": [
+    {"name": "Desktop application (PySide6)", "status": "in-progress", "note": "Runs from source and in the unsigned dev build"},
+    {"name": "Packaged Windows build", "status": "in-progress", "note": "Unsigned development zip built and self-tested; no installer or stable release"},
+    {"name": "GPU discovery and VRAM monitoring", "status": "planned", "note": "Release 2 target"},
+    {"name": "Pause / resume with checkpoints", "status": "planned", "note": "Release 2 target"},
+    {"name": "Provider plugin API", "status": "planned", "note": "Release 3 target"},
+    {"name": "macOS and Linux builds", "status": "planned", "note": "Not scheduled"}
+  ]},
+  {"group": "Other domains", "items": [
+    {"name": "Image classification", "status": "planned", "note": "Needs PyTorch backend; long-term"},
+    {"name": "Audio / speech classification (speaker-independent splits)", "status": "planned", "note": "Long-term"},
+    {"name": "Text classification", "status": "planned", "note": "Long-term"},
+    {"name": "Time-series forecasting and anomaly detection", "status": "planned", "note": "Long-term"},
+    {"name": "Fine-tuning pretrained neural networks", "status": "planned", "note": "Long-term; GPU recommended"}
+  ]}
+]
+
